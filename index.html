@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://xmp.dev/youtube/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Youtube Keyword Tool</title>
+      <link rel="stylesheet" type="text/css" href="assets/backend.css">
+      <link href="assets/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/ie10-viewport-bug-workaround.css" rel="stylesheet">
+      <script src="assets/jquery.js"></script>
+      <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+      <script src="assets/ie-emulation-modes-warning.js"></script>
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  <style>
+	  .pre-footer {
+		margin-bottom:12%;
+		}
+	  </style>
+   </head>
+<body style="background-color: #d2d2d2;">
+<div class="container">
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<div class="page-header">
+            <h1>Youtube Keyword Tool</h1>
+         </div>
+	</div>
+	<div class="col-md-4"></div>
+</div>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<form>
+			  <div class="form-group row">
+				<label for="keyword" class="col-sm-2 col-form-label">Enter Keyword:</label>
+				<div class="col-sm-10">
+				  <input type="text" class="form-control" id="keyword" placeholder="Type a keyword and press enter">
+				</div>
+			  </div>
+			  
+			  <div class="form-group row">
+					<div class="col-sm-2">
+					<label for="limit" class="col-form-label">Limit:</label>
+				  </div>
+				  <div class="col-sm-10">
+				  <select class="form-control" name="limit" id="limit">
+					<option value="5" selected="">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+				  </select>
+				  </div>
+				</div>
+			  
+			<div class="form-group row">
+				<div class="col-sm-2">
+				<label for="keyword" class="col-form-label">Display:</label>
+				</div>
+				<div class="col-sm-10">
+				  <div class="form-check">
+					<input class="form-check-input" type="checkbox" name="display" value="video-title" checked="">
+					<label class="form-check-label" for="video-title">
+					  Video Title
+					</label>
+					<input class="form-check-input" type="checkbox" name="display" value="video-description" checked="">
+					<label class="form-check-label" for="video-description">
+					  Video Description
+					</label>
+					<input class="form-check-input" type="checkbox" name="display" value="video-tags" checked="">
+					<label class="form-check-label" for="video-tags">
+					  Video Tags
+					</label>
+					<input class="form-check-input" type="checkbox" name="display" value="video-thumbnail">
+					<label class="form-check-label" for="video-thumbnail">
+					  Video Thumbnail
+					</label>
+					<br>
+					<input class="form-check-input" type="checkbox" name="display" value="video-published-date">
+					<label class="form-check-label" for="video-published-date">
+					  Video Published Date
+					</label>
+					<input class="form-check-input" type="checkbox" name="display" value="video-id" checked="">
+					<label class="form-check-label" for="video-id">
+					  Video Id
+					</label>
+					<input class="form-check-input" type="checkbox" name="display" value="channel-id">
+					<label class="form-check-label" for="channel-id">
+					  Channel Id
+					</label>
+					<input class="form-check-input" type="checkbox" name="display" value="channel-title">
+					<label class="form-check-label" for="channel-title">
+					  Channel Title
+					</label>
+					<br>
+					<input class="form-check-input" type="checkbox" name="display" value="unique-tags">
+					<label class="form-check-label" for="unique-tags">
+					  Unique Tags
+					</label>
+					<input class="form-check-input" type="checkbox" name="display" value="similar-titles">
+					<label class="form-check-label" for="similar-titles">
+					  Similar Titles
+					</label>
+				  </div>
+				</div>
+			</div>
+			  <div class="form-group row">
+			  <div class="col-sm-2"></div>
+				<div class="col-sm-10">
+					<div class="g-recaptcha" data-sitekey="6Lfs-UgUAAAAAOjCdqcJ6gj8cs4S-ZsIDFdbYGUE" data-callback="enableSearch"></div>
+				  <button type="button" class="btn btn-primary" id="search" disabled="">Search</button>
+				</div>
+			  </div>
+			</form>
+		</div>
+	</div>
+	   <div class="row">
+	   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+				<div id="search-results">
+
+				</div>
+				<div id="similar-search-results">
+
+				</div>
+			</div>
+		</div>
+</div>
+<div class="pre-footer">
+</div>
+<footer class="footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-4 col-md-4 col-sm-4"></div>
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <p class="text-muted text-center footer-brand">Created By -Raza Hasan</p>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            </div>
+         </div>
+      </footer> 
+	<script src="assets/bootstrap.min.js"></script>
+    <script src="assets/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+	var mainData= [];
+	var uniqueTags= '';
+	var display = [];
+	$(document).ready(function(){
+$('#search').click(function(event){
+	
+	var limit=5;
+	$("input:checkbox[name='display']:checked").each(function(){
+		display.push($(this).val());
+	});
+	if($("select[name=limit]").val() > 1){
+		limit=$("select[name=limit]").val();	
+	}
+	getRequest(display,limit);
+});
+});
+function getRequest(display,limit){
+  var params = {
+    "q": $('#keyword').val(),
+    "part": 'snippet',
+    "type": 'video',
+    "key": 'AIzaSyCZ7tiJHpLOjvRbPQaXr6E9s5bOGLlJ3-8',
+	"maxResults": limit
+  }
+  url = 'https://www.googleapis.com/youtube/v3/search';
+
+  $.getJSON(url, params, function(data){
+    showResults(data.items,display);
+   });
+}
+
+function showResults(results,display){
+  $.each(results, function(index,value){
+	tmp = {}
+	tmp ["videoId"] = value.id.videoId;
+	tmp ["channelId"] = value.snippet.channelId;
+	tmp ["channelTitle"] = value.snippet.channelTitle;
+	tmp ["thumbnails"] = value.snippet.thumbnails.high.url;
+	tmp ["publishedAt"] = value.snippet.publishedAt;
+	tmp ["videoTitle"] = '';
+	tmp ["videoDescription"] = '';
+	tmp ["videoTags"] = '';
+	mainData.push(tmp);
+	});
+	for (var i = 0; i < mainData.length; i++) {
+		(function(i) {
+			setTimeout(function() { 
+			var info_url="https://www.googleapis.com/youtube/v3/videos";
+			var params = {
+			"part": 'snippet',
+			"fields": 'items(snippet(title,description,tags))',
+			"key": 'AIzaSyCZ7tiJHpLOjvRbPQaXr6E9s5bOGLlJ3-8',
+			"id": mainData[i].videoId,
+			't': i
+			}
+			$.getJSON(info_url, params, function(data){
+				$.each(data.items, function(index,details){
+					mainData[params.t].videoTitle=details.snippet.title;
+					mainData[params.t].videoDescription=details.snippet.description;
+					mainData[params.t].videoTags=details.snippet.tags.join();
+				});
+			});
+			}, 100 * i);
+		})(i);
+	}
+	setTimeout(function(){
+		for (var j = 0; j < mainData.length; j++) {
+		if(display.indexOf("video-id") > -1 && mainData[j].videoId.length > 1){
+			$('#search-results').append('<div class="form-group row"><label for="Video-id" class="col-sm-2 col-form-label">Video Id:</label><div class="col-sm-8"><input type="text" class="form-control" value="'+mainData[j].videoId+'" id="'+mainData[j].videoId+'"></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("'+mainData[j].videoId+'").select();copyText(document.getElementById("'+mainData[j].videoId+'").value);>Copy</button></div></div>');
+			if(display.indexOf("similar-titles") > -1){
+			var similar_titles_url="https://www.googleapis.com/youtube/v3/search";
+				var params = {
+				"relatedToVideoId": 'yUWtrYlM_9c',
+				"part": 'snippet',
+				"type": 'video',
+				"key": 'AIzaSyCZ7tiJHpLOjvRbPQaXr6E9s5bOGLlJ3-8'
+				}
+				$.getJSON(similar_titles_url, params, function(data){
+					$.each(data.items, function(index,similar_details){
+						$('#similar-search-results').append('<div class="form-group row"><label for="Similar-video-title-'+k+'" class="col-sm-2 col-form-label">Similar Video Title:</label><div class="col-sm-8"><input type="text" class="form-control" value="'+similar_details.snippet.title+'" id="Similar-video-title-'+similar_details.id.videoId+'"></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("Similar-video-title-'+similar_details.id.videoId+'").select();copyText(document.getElementById("Similar-video-title-'+similar_details.id.videoId+'").value);>Copy</button></div></div>');
+					});
+				});
+			}
+		}
+		if(display.indexOf("video-title") > -1 && mainData[j].videoTitle.length > 1){
+			$('#search-results').append('<div class="form-group row"><label for="Video-title" class="col-sm-2 col-form-label">Video Title:</label><div class="col-sm-8"><input type="text" class="form-control" value="'+mainData[j].videoTitle+'" id="'+mainData[j].videoId+'-videoTitle"></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("'+mainData[j].videoId+'-videoTitle").select();copyText(document.getElementById("'+mainData[j].videoId+'-videoTitle").value);>Copy</button></div></div>');
+		}
+		if(display.indexOf("video-description") > -1 && mainData[j].videoDescription.length > 1){
+			$('#search-results').append('<div class="form-group row"><label for="Video-description" class="col-sm-2 col-form-label">Video Description:</label><div class="col-sm-8"> <textarea class="form-control" rows="5" id="'+mainData[j].videoId+'-videoDescription">'+mainData[j].videoDescription+'</textarea></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("'+mainData[j].videoId+'-videoDescription").select();copyText(document.getElementById("'+mainData[j].videoId+'-videoDescription").value);>Copy</button></div></div>');
+		}
+		if(display.indexOf("video-tags") > -1 && mainData[j].videoTags.length > 1){
+			uniqueTags += mainData[j].videoTags;
+			$('#search-results').append('<div class="form-group row"><label for="Video-tags" class="col-sm-2 col-form-label">Video tags:</label><div class="col-sm-8"> <textarea class="form-control" rows="5" id="'+mainData[j].videoId+'-videoTags">'+mainData[j].videoTags+'</textarea></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("'+mainData[j].videoId+'-videoTags").select();copyText(document.getElementById("'+mainData[j].videoId+'-videoTags").value);>Copy</button></div></div>');
+		}
+		if(display.indexOf("video-thumbnail") > -1 && mainData[j].thumbnails.length > 1){
+			$('#search-results').append('<div class="form-group row"><label for="Video-thumbnail" class="col-sm-2 col-form-label">Video Thumbnail:</label><div class="col-sm-8"><input type="text" class="form-control" value="'+mainData[j].thumbnails+'" id="'+mainData[j].videoId+'-thumbnail"></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("'+mainData[j].videoId+'-thumbnail").select();copyText(document.getElementById("'+mainData[j].videoId+'-thumbnail").value);>Copy</button></div></div>');
+		}
+		if(display.indexOf("video-published-date") > -1 && mainData[j].publishedAt.length > 1){
+			$('#search-results').append('<div class="form-group row"><label for="Video-publish-date" class="col-sm-2 col-form-label">video Publish Date:</label><div class="col-sm-8"><input type="text" class="form-control" value="'+mainData[j].publishedAt+'" id="'+mainData[j].videoId+'-publishedAt"></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("'+mainData[j].videoId+'-publishedAt").select();copyText(document.getElementById("'+mainData[j].videoId+'-publishedAt").value);>Copy</button></div></div>');
+		}
+		if(display.indexOf("channel-id") > -1 && mainData[j].channelId.length > 1){
+			$('#search-results').append('<div class="form-group row"><label for="Channel-id" class="col-sm-2 col-form-label">Channel Id:</label><div class="col-sm-8"><input type="text" class="form-control" value="'+mainData[j].channelId+'" id="'+mainData[j].videoId+'-channelId"></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("'+mainData[j].videoId+'-channelId").select();copyText(document.getElementById("'+mainData[j].videoId+'-channelId").value);>Copy</button></div></div>');
+		}
+		if(display.indexOf("channel-title") > -1 && mainData[j].channelTitle.length > 1){
+			$('#search-results').append('<div class="form-group row"><label for="Channel-title" class="col-sm-2 col-form-label">Channel Title:</label><div class="col-sm-8"><input type="text" class="form-control" value="'+mainData[j].channelTitle+'" id="'+mainData[j].videoId+'-channelTitle"></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("'+mainData[j].videoId+'-channelTitle").select();copyText(document.getElementById("'+mainData[j].videoId+'-channelTitle").value);>Copy</button></div></div>');
+		}
+		$('#search-results').append('<div class="form-group row"><hr></div>');
+	}
+		if(display.indexOf("unique-tags") > -1 && uniqueTags.length > 1){
+		uniqueTags=uniqueTags.split(',');
+		$('#search-results').append('<div class="form-group row"><label for="unique-tags" class="col-sm-2 col-form-label">Unique Tags:</label><div class="col-sm-8"><input type="text" class="form-control" value="'+uniqueTags.unique()+'" id="unique-tags"></div><div class="col-sm-2"><button class="btn btn-secondary" type="button" onClick=document.getElementById("unique-tags").select();copyText(document.getElementById("unique-tags").value);>Copy</button></div></div>');	
+		}
+	},1000);
+ 
+}
+
+Array.prototype.contains = function(v) {
+    for(var i = 0; i < this.length; i++) {
+        if(this[i] === v) return true;
+    }
+    return false;
+};
+
+Array.prototype.unique = function() {
+    var arr = [];
+    for(var i = 0; i < this.length; i++) {
+        if(!arr.includes(this[i])) {
+            arr.push(this[i]);
+        }
+    }
+    return arr; 
+}
+function enableSearch(){
+$("#search").removeAttr("disabled");
+}
+function copyText(text){
+  function selectElementText(element) {
+    if (document.selection) {
+      var range = document.body.createTextRange();
+      range.moveToElementText(element);
+      range.select();
+    } else if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNode(element);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+    }
+  }
+  var element = document.createElement('DIV');
+  element.textContent = text;
+  document.body.appendChild(element);
+  selectElementText(element);
+  document.execCommand('copy');
+  element.remove();
+}
+	</script>
+</body></html>
