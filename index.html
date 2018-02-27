@@ -163,7 +163,16 @@ $('#search').click(function(event){
 	if($("select[name=limit]").val() > 1){
 		limit=$("select[name=limit]").val();	
 	}
+	if($('#keyword').val() != ""){
+	$('#keyword').css({"border-color": "none", 
+             "border-width":"0px", 
+             "border-style":"solid"});
 	getRequest(display,limit);
+	}else{
+		$('#keyword').css({"border-color": "red", 
+             "border-width":"2px", 
+             "border-style":"solid"});
+	}
 });
 });
 function getRequest(display,limit){
